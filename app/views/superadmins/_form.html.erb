@@ -1,0 +1,34 @@
+<fieldset>
+  <legend>SignUp Desk</legend>
+<p >
+  <%= f.label :Name %><br>
+  <%= f.text_field :name %>
+</p>
+
+<p>
+  <%= f.label :Email %><br>
+  <%= f.text_field :email %>
+</p>
+
+<p>
+  <%= f.label "Contact:" %><br>
+  <%= f.number_field :contact %>
+</p>
+
+<p>
+  <%= f.label :Password %><br>
+  <%= f.password_field :password %>
+</p>
+
+<p>
+  <%= f.label "Confirm Passsword:" %><br>
+  <%= f.password_field :confirm %>
+</p>
+
+<p>
+  <br>
+  <%= f.submit "Submit Details" %>
+  <br>
+</p>
+
+</fieldset>

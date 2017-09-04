@@ -1,0 +1,23 @@
+<html>
+<fieldset>
+  <legend>Moderator Under You</legend>
+<table>
+<tr>
+  <th>Moderator Name &nbsp&nbsp&nbsp</th>
+  <th>Contact &nbsp&nbsp&nbsp</th>
+  <th> Created At  &nbsp&nbsp&nbsp</th>
+  <th> Updated At &nbsp&nbsp&nbsp</th>
+</tr>
+<% @moderators.each do |moderator| %>
+<tr>
+  <td><%= moderator.name%></td>
+  <td><%= moderator.contact%> &nbsp&nbsp&nbsp</td>
+  <td><%= moderator.created_at %>  &nbsp&nbsp&nbsp</td>
+  <td><%= moderator.updated_at %> &nbsp&nbsp&nbsp</td>
+  <td><%= link_to "Delete" , controller:"superadmins" , action: "delmod" , id: moderator.id %>
+</tr>
+<% end %>
+</table>
+</fieldset>
+
+</html>

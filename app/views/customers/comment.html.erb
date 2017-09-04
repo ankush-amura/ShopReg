@@ -1,0 +1,67 @@
+<fieldset>
+  <legend>All Shops Confirming Your Search</legend>
+<table>
+<tr>
+  <th>Shop id &nbsp&nbsp</th>
+  <th>Shop name &nbsp&nbsp&nbsp</th>
+  <th>Shop city  &nbsp&nbsp&nbsp</th>
+  <th>Shop Area  &nbsp&nbsp&nbsp</th>
+  <th>Shop created at  &nbsp&nbsp&nbsp</th>
+  <th>Shop Updated At &nbsp&nbsp&nbsp</th>
+</tr>
+<tr>
+  <td><%= @shop.id%></td>
+  <td><%= @shop.name%> &nbsp&nbsp&nbsp</td>
+  <td><%= @shop.city.name%> &nbsp&nbsp&nbsp</td>
+  <td><%= @shop.area.name %> &nbsp&nbsp&nbsp</td>
+  <td><%= @shop.created_at %>  &nbsp&nbsp&nbsp</td>
+  <td><%= @shop.updated_at %> &nbsp&nbsp&nbsp</td>
+</td>
+</tr>
+</table>
+<%= form_for :customer , url: customers_commented_url do |f| %>
+<p>
+
+  <%= text_field_tag :comment %>
+</p>
+<p>
+  <%= hidden_field_tag  :shop_id , "#{ @shop.id }" %>
+
+</p>
+<p>
+  <%= f.submit "Submit My Comment" %>
+  <br>
+</p>
+<% end %>
+
+<p>Comments And Replies For Shop</p>
+ <% @comments.each do |comment|%>
+    <br>
+    <br>
+    <br>
+    Comment:   <%= comment.message %>
+<%= form_for :customer , url: customers_reply_url   do |f| %>
+<p>
+  <%= text_field_tag :reply %>
+</p>
+<p>
+  <%= hidden_field_tag  :shop_id , "#{ @shop.id }" %>
+</p>
+<p>
+  <%= hidden_field_tag  :comment_id , "#{ comment.id }" %>
+
+</p>
+<p>
+  <%= f.submit "Submit My Reply" %>
+  <br>
+</p>
+<% end %>
+      <br>
+      <p>Replies: </p>
+   <% comment.replies.each do |reply| %>
+    Reply: &nbsp&nbsp&nbsp&nbsp<%= reply.message %>
+    <br>
+    <br>
+   <% end %>
+<% end%>
+</fieldset>

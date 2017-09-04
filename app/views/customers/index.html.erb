@@ -1,0 +1,29 @@
+<fieldset>
+  <legend>All Shops Confirming Your Search</legend>
+<table>
+<tr>
+  <th>Shop id &nbsp&nbsp</th>
+  <th>Shop name &nbsp&nbsp&nbsp</th>
+  <th>Shop city  &nbsp&nbsp&nbsp</th>
+  <th>Shop Area  &nbsp&nbsp&nbsp</th>
+  <th>Shop created at  &nbsp&nbsp&nbsp</th>
+  <th>Shop Updated At &nbsp&nbsp&nbsp</th>
+  <th>Comment Shop &nbsp&nbsp&nbsp</th>
+  <th>Reply To Comment &nbsp&nbsp&nbsp</th>
+</tr>
+<% @shops.each_with_index do |shop,index| %>
+<tr>
+  <td><%= shop.id%></td>
+  <td><%= shop.name%> &nbsp&nbsp&nbsp</td>
+  <td><%= shop.city.name%> &nbsp&nbsp&nbsp</td>
+  <td><%= shop.area.name %> &nbsp&nbsp&nbsp</td>
+  <td><%= shop.created_at %>  &nbsp&nbsp&nbsp</td>
+  <td><%= shop.updated_at %> &nbsp&nbsp&nbsp</td>
+  <td>&nbsp&nbsp&nbsp&nbsp <%= link_to "Comment" , controller: 'customers' , action: 'comment',id: shop.id %></td>
+  <td>&nbsp&nbsp&nbsp&nbsp <%= link_to " Reply " , controller: 'customers' , action: 'index',id: shop.id %></td>
+
+</td>
+</tr>
+<% end %>
+</table>
+</fieldset>

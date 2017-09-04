@@ -1,0 +1,28 @@
+<html>
+<fieldset>
+  <legend>Moderator Under You</legend>
+<table>
+<tr>
+  <th>Moderator Name &nbsp&nbsp&nbsp</th>
+  <th>Contact &nbsp&nbsp&nbsp</th>
+  <th> Created At  &nbsp&nbsp&nbsp</th>
+  <th> Updated At &nbsp&nbsp&nbsp</th>
+</tr>
+<% @moderators.each do |moderator| %>
+<tr>
+  <td><%= moderator.name%></td>
+  <td><%= moderator.contact%> &nbsp&nbsp&nbsp</td>
+  <td><%= moderator.created_at %>  &nbsp&nbsp&nbsp</td>
+  <td><%= moderator.updated_at %> &nbsp&nbsp&nbsp</td>
+</tr>
+<% end %>
+</table>
+</fieldset>
+<p align="center">
+<%= link_to "Add More Moderators" , controller: 'moderators' , action: 'new' %>
+</p>
+<p align="center">
+<%= link_to "Delete Moderator " , controller: 'superadmins' , action: 'delmod' %>
+</p>
+
+</html>

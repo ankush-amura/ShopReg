@@ -1,0 +1,22 @@
+<html>
+<fieldset>
+  <legend>Sales Persons Under You</legend>
+<table>
+<tr>
+  <th>SalePerson Name &nbsp&nbsp&nbsp</th>
+  <th>Contact &nbsp&nbsp&nbsp</th>
+  <th> Created At  &nbsp&nbsp&nbsp</th>
+  <th> Updated At &nbsp&nbsp&nbsp</th>
+</tr>
+<% @sales.each do |sale| %>
+<tr>
+  <td><%= sale.name%></td>
+  <td><%= sale.contact%> &nbsp&nbsp&nbsp</td>
+  <td><%= sale.created_at %>  &nbsp&nbsp&nbsp</td>
+  <td><%= sale.updated_at %> &nbsp&nbsp&nbsp</td>
+  <td><%= link_to "Delete" , controller: 'moderators' , action: "delsale" , id: sale.id %></td>
+</tr>
+<% end %>
+</table>
+</fieldset>
+</html>

@@ -1,0 +1,32 @@
+<%= form_for :sales , url: sales_url  do |f| %>
+<fieldset>
+  <legend>Shop Edit Desk</legend>
+<p>
+  <%= f.label :name %><br>
+  <%= f.text_field :name , value: @shop.name %>
+</p>
+
+<p>
+  <%= f.label "city:" %><br><br>
+  <%= f.select :city ,options_for_select(@city_names),value: @shop.city.name%>
+</p>
+
+<p>
+  <%= f.label :area %><br><br>
+  <%= f.select :area,options_for_select(@area_names) , value: @shop.area.name%>
+</p>
+
+<p>
+  <%= f.label "category:" %><br><br>
+  <%= f.select :category, options_for_select(@category_names) %>
+</p>
+
+<p>
+  <br>
+  <br>
+  <%= f.submit "Submit New Details" %>
+  <br>
+</p>
+
+</fieldset>
+<% end %>
