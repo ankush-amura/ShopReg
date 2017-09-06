@@ -1,4 +1,5 @@
 require 'rails_helper.rb'
+require 'faker'
 RSpec.describe CustomersController,type: :controller do
   describe "GET index" do
   it "has a 200 status code" do
@@ -31,7 +32,7 @@ end
   describe "#search" do
     subject{
        post :search,
-       params:{name:"Gucci Store",city: "Pune",area:"Baner",category:"Retail"}
+       params:{name:Faker::Name.name,city:Faker::Address.city,area:"Baner",category:"Retail"}
       }
      it "redirects to the results page" do
        expect(subject).to render_template(:results)

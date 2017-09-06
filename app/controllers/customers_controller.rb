@@ -33,7 +33,6 @@ end
      @reply=Review.new(message: reply,role:'Reply')
      @review.replies.push(@reply)
      @shop.reviews.push(@reply)
-     p"----------------------------"+@reply
      @shops=Shop.all
      render('index')
   end
