@@ -9,7 +9,6 @@ class CustomersController < ApplicationController
   id=params[:id]
   @shop=Shop.find(id)
   @comments=@shop.reviews.where(role: "Review")
-  render('comment')
   end
 
 def commented
@@ -34,7 +33,7 @@ end
      @reply=Review.new(message: reply,role:'Reply')
      @review.replies.push(@reply)
      @shop.reviews.push(@reply)
-     p @reply
+     p"----------------------------"+@reply
      @shops=Shop.all
      render('index')
   end
@@ -49,6 +48,7 @@ end
      @shops=Shop.where(name:name,city_id:city.first.id,area_id:area.first.id,category_id:category.first.id)
      render('results')
     end
+
     if request.get?
       @city=City.all
       @city_names=[]

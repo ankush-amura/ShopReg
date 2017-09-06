@@ -51,5 +51,13 @@ end
           it "creates new Shop and Redirects to index page" do
              expect(subject).to redirect_to(controller: "sales",action: "index")
           end
+     end
+
+
+    describe "#remove" do
+        subject{ post :remove ,params: {id:'1'}}
+          it "removes the shop from database" do
+          expect(subject).to redirect_to controller:'sales',action: 'index'
+        end
     end
 end

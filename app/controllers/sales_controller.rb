@@ -65,6 +65,8 @@ end
     @shop.update(name:params[:name])
     redirect_to(sales_url)
     end
+
+
     if request.get?
     @shop=Shop.find(params[:id])
     @city_names=[]

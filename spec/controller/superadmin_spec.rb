@@ -17,4 +17,13 @@ end
     end
    end
 
+   describe "#delmod" do
+     subject{
+         post :delmod,
+         params:{id:'1'}
+       }
+     it "redirects to the index page" do
+          expect(subject).to redirect_to controller: 'superadmins',action: "delmod"
+     end
+    end
 end

@@ -31,7 +31,7 @@ class ModeratorsController < ApplicationController
    @superadmin.moderators << @moderator
    # checking if the superadmin is valid to be saved
    if @superadmin.save!
-     # redirecting the controller to the index page after adding is successfull
+   # redirecting the controller to the index page after adding is successfull
      redirect_to(controller: "superadmins" , action: "index")
    end
 end
