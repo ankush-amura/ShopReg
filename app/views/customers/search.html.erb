@@ -1,18 +1,14 @@
-<%= form_for :sales , url:sales_edit_url   do |f| %>
+<%= form_for :sales , url: customers_search_url  do |f| %>
 <fieldset>
-  <legend>Shop Edit Desk</legend>
+  <legend>Shop Search  Desk</legend>
 <p>
   <%= f.label :name %><br>
-  <%= text_field_tag :name ,@shop.name %>
+  <%= text_field_tag :name %>
 </p>
 
 <p>
   <%= f.label "city:" %><br><br>
   <%= select_tag :city ,options_for_select(@city_names)%>
-</p>
-
-<p>
-  <%= hidden_field_tag :shop_id ,"#{@shop.id}" %>
 </p>
 
 <p>
@@ -22,13 +18,13 @@
 
 <p>
   <%= f.label "category:" %><br><br>
-  <%= select_tag :category,options_for_select(@category_names) %>
+  <%= select_tag :category, options_for_select(@category_names) %>
 </p>
 
 <p>
   <br>
   <br>
-  <%= f.submit "Submit New Details" %>
+  <%= f.submit "Search for Shop" %>
   <br>
 </p>
 

@@ -7,9 +7,15 @@ Rails.application.routes.draw do
   get '/moderators/reject'
   get '/sales/remove'
   get '/sales/edit'
+  post '/sales/edit'
   post '/customers/commented'
   get '/customers/commented'
   post '/customers/reply'
+  post '/customers/search'
+  get '/customers/search'
+  post '/customers/index'
+  post '/sales/newShop'
+  get '/sales/newShop'
   resources :moderators
   resources :superadmins
   resources :sales

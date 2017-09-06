@@ -44,6 +44,7 @@ end
   # this method is responsible for deleting the sale person
   def delsale
     # getting the moderator responsible for current session sales persons
+    session[:current_moderator_id]=1
     @moderator=Moderator.find_by_id(session[:current_moderator_id])
     # we get salesperson that belongs to that moderator
     @sales = @moderator.sales

@@ -32,8 +32,9 @@ end
      # checking if the superadmin saves into the superadmins table
      if @superadmin.save!
       # render responsibility page for superadmin
-      render("index")
       session[:current_user_id]=@superadmin.id
+      redirect_to(controller: "superadmins",action: "index")
+
      end
   end
 # this function is resposible for permitting the parameters that  should be included

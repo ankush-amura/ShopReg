@@ -10,7 +10,6 @@
   <th>Shop Updated At &nbsp&nbsp&nbsp</th>
   <th>Comment For Shop &nbsp&nbsp&nbsp</th>
 </tr>
-
 <% @shops.each_with_index do |shop,index| %>
 <tr>
   <td><%= shop.id%></td>
@@ -28,8 +27,5 @@
 <% if(@shops.count == 0) %>
 <%= "No shops Found For Your Search" %>
 <% end %>
-</p>
-<p align="Center">
-<%= link_to "Search Shop",controller: 'customers' , action: 'search' %>
 </p>
 </fieldset>

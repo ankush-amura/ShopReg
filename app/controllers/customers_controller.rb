@@ -3,7 +3,6 @@ class CustomersController < ApplicationController
   end
   def index
      @shops=Shop.all
-
    end
 
   def comment
@@ -38,5 +37,34 @@ end
      p @reply
      @shops=Shop.all
      render('index')
+  end
+
+  def search
+
+    if request.post?
+     city=City.where(name:params[:city])
+     area=Area.where(name:params[:area])
+     category=Category.where(name:params[:category])
+     name=params[:name]
+     @shops=Shop.where(name:name,city_id:city.first.id,area_id:area.first.id,category_id:category.first.id)
+     render('results')
+    end
+    if request.get?
+      @city=City.all
+      @city_names=[]
+      @city.each do |city|
+          @city_names.push(city.name)
+      end
+      @area=Area.all
+      @area_names=[]
+      @area.each do |area|
+      @area_names.push(area.name)
+      end
+      @category=Category.where(role: "Category")
+      @category_names=[]
+      @category.each do |category|
+      @category_names.push(category.name)
+      end
+    end
   end
 end
